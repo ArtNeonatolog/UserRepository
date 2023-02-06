@@ -7,12 +7,11 @@ public class UserRepository {
     private final List<User> userList = new ArrayList<>();
 
     public UserRepository(User user) {
-        this.user = user;
+            this.user = user;
     }
 
     public User getUser() {
-
-        return this.user;
+        return user;
     }
 
     public void addToList (User user) {
@@ -29,7 +28,6 @@ public class UserRepository {
     }
 
     public Collection<User> getAllUsers () {
-        return Collections.unmodifiableCollection(userList);
-    }
-
+            return Collections.unmodifiableCollection(userList);
+        }
 }
