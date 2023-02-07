@@ -18,13 +18,15 @@ public class UserService {
 
     public void newUser(String login, String password) {
         User user = new User(login, password);
-        if (userRepository.searchLogin(login).equals(Optional.empty())) {
-           throw new UserNonUniqueException("Пользовтель с таким логином уже существует!");
-       }
+        if (userRepository.searchLogin(login).equals(Optional.of(user))) {
+            throw new UserNonUniqueException("Пользовтель с таким логином уже существует!");
+        }
         if (login == null || login.isBlank() || password == null || password.isBlank()) {
             throw new IllegalArgumentException("Логин и пароль не должны быть пустыми или равными null!");
         }
-        this.userRepository.addToList(user);
+        if (userRepository.searchLoginAndPassword(login, password).equals(Optional.of(user))) {
+            this.userRepository.addToList(user);
+        }
     }
 
     public List<String> getAllLoginsToList () {
