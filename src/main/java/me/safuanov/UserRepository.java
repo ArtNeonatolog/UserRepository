@@ -3,16 +3,20 @@ package me.safuanov;
 import java.util.*;
 
 public class UserRepository {
-    private final User user;
-    private final List<User> userList = new ArrayList<>();
+
+    private User user;
 
     public UserRepository(User user) {
+        if (user.getLogin().isEmpty() || user.getLogin().isBlank() || user.getPassword().isEmpty() || user.getPassword().isBlank()) {
             this.user = user;
+        }
     }
 
     public User getUser() {
         return user;
     }
+
+    private final List<User> userList = new ArrayList<>();
 
     public void addToList (User user) {
 
