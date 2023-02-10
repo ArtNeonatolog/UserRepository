@@ -19,7 +19,6 @@ public class UserRepository {
     private final List<User> userList = new ArrayList<>();
 
     public void addToList (User user) {
-
         userList.add(user);
     }
 
