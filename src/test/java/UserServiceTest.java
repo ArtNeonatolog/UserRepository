@@ -1,3 +1,4 @@
+import me.safuanov.User;
 import me.safuanov.UserRepository;
 import me.safuanov.UserService;
 import org.junit.jupiter.api.Assertions;
@@ -35,5 +36,16 @@ public class UserServiceTest {
     void whenEmptyLoginOrPasswordOfUserIsPassedThenServiceThrowsException () {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {userService.newUser("", "");});
     }
+    @Test
+    void whenLoginOrPasswordOfUserIsPassedThenServiceThrowsException () {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {userService.newUser("", "");});
+    }
+
+    @Test
+    void whenListOfLoginsOfUserNullOrEmptyIsPassedThenServiceThrowsException () {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {userService.getAllLoginsToList();});
+    }
+
+
 
 }

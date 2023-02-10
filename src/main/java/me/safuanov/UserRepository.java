@@ -13,7 +13,7 @@ public class UserRepository {
     }
 
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     private final List<User> userList = new ArrayList<>();

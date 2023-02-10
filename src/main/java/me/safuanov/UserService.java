@@ -30,6 +30,9 @@ public class UserService {
     }
 
     public List<String> getAllLoginsToList () {
+        if (userRepository.getAllUsers().isEmpty()|| userRepository.getAllUsers() == null) {
+            throw new IllegalArgumentException("Коллекция не может быть пустой!");
+        }
         return this.userRepository.getAllUsers().stream().map(User::getLogin).collect(Collectors.toList());
     }
 }
